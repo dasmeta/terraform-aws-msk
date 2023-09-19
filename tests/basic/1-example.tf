@@ -13,8 +13,8 @@ module "this" {
   }
 
   kafka_auth = {
-    username = "dev",
-    password = "AAaa123456789!!"
+    username = "username",
+    password = "password"
   }
 
   vpc_id         = "vpc-000000000000000"
