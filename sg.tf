@@ -34,12 +34,4 @@ resource "aws_security_group" "allow_kafka_connection" {
     protocol    = "tcp"
     cidr_blocks = var.ingress_access
   }
-
-  egress {
-    description = "Full outbound access"
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 }
