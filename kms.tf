@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "kms_key_policy" {
 
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/${data.aws_caller_identity.current.username}"]
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/${var.kms_key_owner_username}"]
     }
     actions = [
       "kms:Create*",

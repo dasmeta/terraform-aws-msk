@@ -44,6 +44,7 @@
 | <a name="input_ingress_access"></a> [ingress\_access](#input\_ingress\_access) | Use cidr for get access to connect kafka | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 | <a name="input_kafka_auth"></a> [kafka\_auth](#input\_kafka\_auth) | Credentials which is using for connect kafka | `any` | <pre>{<br>  "password": "AAaa123456789!!",<br>  "username": "dev"<br>}</pre> | no |
 | <a name="input_kafka_version"></a> [kafka\_version](#input\_kafka\_version) | Specify the desired Kafka software version | `string` | `"3.4.0"` | no |
+| <a name="input_kms_key_owner_username"></a> [kms\_key\_owner\_username](#input\_kms\_key\_owner\_username) | KMS key owner aws account username | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Kafka name | `string` | `"msk"` | no |
 | <a name="input_number_of_broker_nodes"></a> [number\_of\_broker\_nodes](#input\_number\_of\_broker\_nodes) | The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets | `number` | `3` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The vpc where redis cluster will be created | `string` | n/a | yes |

@@ -60,6 +60,11 @@ variable "vpc_id" {
   description = "The vpc where redis cluster will be created"
 }
 
+variable "kms_key_owner_username" {
+  type        = string
+  description = "KMS key owner aws account username"
+}
+
 variable "ingress_access" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
