@@ -1,7 +1,6 @@
 variable "name" {
   type        = string
   description = "Kafka name"
-  default     = "msk"
 }
 
 variable "kafka_version" {
@@ -24,7 +23,7 @@ variable "broker_node_instance_type" {
 
 variable "number_of_broker_nodes" {
   type        = number
-  default     = 3
+  default     = 1
   description = "The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets"
 }
 
@@ -47,11 +46,7 @@ variable "create_scram_secret_association" {
 }
 
 variable "kafka_auth" {
-  type = any
-  default = {
-    username = "dev",
-    password = "AAaa123456789!!"
-  }
+  type        = any
   description = "Credentials which is using for connect kafka"
 }
 
@@ -67,6 +62,5 @@ variable "kms_key_owner_username" {
 
 variable "ingress_access" {
   type        = list(string)
-  default     = ["0.0.0.0/0"]
   description = "Use cidr for get access to connect kafka"
 }

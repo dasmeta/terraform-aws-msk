@@ -1,6 +1,7 @@
 module "this" {
   source = "../../"
 
+  name                   = "msk"
   kms_key_owner_username = "dasmeta.julia"
   client_authentication = {
     "iam" : false,
@@ -8,7 +9,7 @@ module "this" {
       "scram" : true
     },
     "tls" : null,
-    "unauthenticated" : true
+    "unauthenticated" : false
   }
 
   kafka_auth = {

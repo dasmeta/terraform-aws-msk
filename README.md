@@ -1,5 +1,32 @@
 # terraform-aws-msk
 
+## Module create AWS MSK cluster with sasl/scram auth mechanism
+
+```hcl
+module "this" {
+  source = "../../"
+
+  name  = "msk"
+  kms_key_owner_username = "dasmeta.julia"
+  client_authentication = {
+    "iam" : false,
+    "sasl" : {
+      "scram" : true
+    },
+    "tls" : null,
+    "unauthenticated" : false
+  }
+
+  kafka_auth = {
+    username = "username",
+    password = "password"
+  }
+
+  vpc_id         = "vpc-000000000000000"
+  ingress_access = ["10.0.0.0/16"]
+}
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -41,12 +68,12 @@
 | <a name="input_cloudwatch_logs_enabled"></a> [cloudwatch\_logs\_enabled](#input\_cloudwatch\_logs\_enabled) | Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs | `bool` | `true` | no |
 | <a name="input_create_scram_secret_association"></a> [create\_scram\_secret\_association](#input\_create\_scram\_secret\_association) | Determines whether to create SASL/SCRAM secret association | `bool` | `true` | no |
 | <a name="input_enable_kms_key_rotation"></a> [enable\_kms\_key\_rotation](#input\_enable\_kms\_key\_rotation) | KMS key rotation | `bool` | `true` | no |
-| <a name="input_ingress_access"></a> [ingress\_access](#input\_ingress\_access) | Use cidr for get access to connect kafka | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
-| <a name="input_kafka_auth"></a> [kafka\_auth](#input\_kafka\_auth) | Credentials which is using for connect kafka | `any` | <pre>{<br>  "password": "AAaa123456789!!",<br>  "username": "dev"<br>}</pre> | no |
+| <a name="input_ingress_access"></a> [ingress\_access](#input\_ingress\_access) | Use cidr for get access to connect kafka | `list(string)` | n/a | yes |
+| <a name="input_kafka_auth"></a> [kafka\_auth](#input\_kafka\_auth) | Credentials which is using for connect kafka | `any` | n/a | yes |
 | <a name="input_kafka_version"></a> [kafka\_version](#input\_kafka\_version) | Specify the desired Kafka software version | `string` | `"3.4.0"` | no |
 | <a name="input_kms_key_owner_username"></a> [kms\_key\_owner\_username](#input\_kms\_key\_owner\_username) | KMS key owner aws account username | `string` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | Kafka name | `string` | `"msk"` | no |
-| <a name="input_number_of_broker_nodes"></a> [number\_of\_broker\_nodes](#input\_number\_of\_broker\_nodes) | The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets | `number` | `3` | no |
+| <a name="input_name"></a> [name](#input\_name) | Kafka name | `string` | n/a | yes |
+| <a name="input_number_of_broker_nodes"></a> [number\_of\_broker\_nodes](#input\_number\_of\_broker\_nodes) | The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets | `number` | `1` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The vpc where redis cluster will be created | `string` | n/a | yes |
 
 ## Outputs
