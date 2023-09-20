@@ -6,8 +6,8 @@ module "secrets" {
   name                    = "AmazonMSK_${var.name}"
   recovery_window_in_days = 0
   value = {
-    "password" : var.kafka_auth.username,
-    "username" : var.kafka_auth.password
+    "password" : var.kafka_auth.password,
+    "username" : var.kafka_auth.username
   }
 
   depends_on = [
