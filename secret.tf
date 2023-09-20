@@ -7,7 +7,7 @@ module "secrets" {
   recovery_window_in_days = 0
   value = {
     "password" : var.kafka_auth.username,
-    "username" : var.kafka_auth.username
+    "username" : var.kafka_auth.password
   }
 
   depends_on = [
