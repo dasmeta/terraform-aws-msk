@@ -43,7 +43,7 @@ data "aws_iam_policy_document" "kms_key_policy" {
 
 module "kms" {
   source  = "terraform-aws-modules/kms/aws"
-  version = "2.0.0"
+  version = "4.2.0"
 
   deletion_window_in_days = 10
   description             = "Default key that protects my Kafka data when no other key is defined"
