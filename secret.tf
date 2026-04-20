@@ -1,6 +1,6 @@
 module "secrets" {
   source  = "dasmeta/modules/aws//modules/secret"
-  version = "2.6.3"
+  version = "2.18.11"
 
   kms_key_id              = module.kms.key_arn
   name                    = "AmazonMSK_${var.name}"
