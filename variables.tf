@@ -27,6 +27,15 @@ variable "number_of_broker_nodes" {
   description = "The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets"
 }
 
+variable "configuration_server_properties" {
+  description = <<-EOT
+    Kafka broker `server.properties` entries for the MSK configuration revision.
+    For clusters with only two brokers, for example:`"transaction.state.log.replication.factor" = "2"` and `"transaction.state.log.min.isr" = "2"`.
+  EOT
+  type        = map(string)
+  default     = {}
+}
+
 variable "client_authentication" {
   description = "Configuration block for specifying a client authentication"
   type        = any

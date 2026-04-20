@@ -12,6 +12,7 @@ module "kafka" {
   create_scram_secret_association          = var.create_scram_secret_association
   encryption_at_rest_kms_key_arn           = module.kms.key_arn
   scram_secret_association_secret_arn_list = [module.secrets.secret_id]
+  configuration_server_properties          = var.configuration_server_properties
 
   depends_on = [
     module.kms,

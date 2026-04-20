@@ -39,7 +39,7 @@ module "this" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
 
 ## Modules
 
@@ -66,6 +66,7 @@ module "this" {
 | <a name="input_broker_node_instance_type"></a> [broker\_node\_instance\_type](#input\_broker\_node\_instance\_type) | A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster | `string` | `"kafka.t3.small"` | no |
 | <a name="input_client_authentication"></a> [client\_authentication](#input\_client\_authentication) | Configuration block for specifying a client authentication | `any` | `{}` | no |
 | <a name="input_cloudwatch_logs_enabled"></a> [cloudwatch\_logs\_enabled](#input\_cloudwatch\_logs\_enabled) | Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs | `bool` | `true` | no |
+| <a name="input_configuration_server_properties"></a> [configuration\_server\_properties](#input\_configuration\_server\_properties) | Kafka broker `server.properties` entries for the MSK configuration revision.<br/>For clusters with only two brokers, for example:`"transaction.state.log.replication.factor" = "2"` and `"transaction.state.log.min.isr" = "2"`. | `map(string)` | `{}` | no |
 | <a name="input_create_scram_secret_association"></a> [create\_scram\_secret\_association](#input\_create\_scram\_secret\_association) | Determines whether to create SASL/SCRAM secret association | `bool` | `true` | no |
 | <a name="input_enable_kms_key_rotation"></a> [enable\_kms\_key\_rotation](#input\_enable\_kms\_key\_rotation) | KMS key rotation | `bool` | `true` | no |
 | <a name="input_ingress_access"></a> [ingress\_access](#input\_ingress\_access) | Use cidr for get access to connect kafka | `list(string)` | n/a | yes |
