@@ -1,0 +1,19 @@
+# NOTE: we set/switch image repository related to change in bitnami to remove the original
+# bitnami org/repository dockerhub repos and migrate existing images to bitnamilegacy.
+# For more info see https://github.com/bitnami/containers/issues/83267
+# TODO: consider a change to use another image repository which is maintained
+global:
+  security:
+    # Required for bitnamilegacy images on Bitnami chart >= security image checks
+    allowInsecureImages: true
+image:
+  repository: bitnamilegacy/schema-registry
+# External Kafka only — never install the bundled Kafka subchart.
+# Stubs under kafka.auth/service are required when enabled is false (bitnami/charts#16288).
+kafka:
+  enabled: false
+  auth:
+    protocol: {}
+  service:
+    ports:
+      client: {}
