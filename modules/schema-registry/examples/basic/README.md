@@ -37,3 +37,37 @@ cd modules/schema-registry/examples/basic
 terraform init
 terraform plan -target=module.schema_registry_msk
 ```
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.0 |
+
+## Providers
+
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_schema_registry"></a> [schema\_registry](#module\_schema\_registry) | ../.. | n/a |
+| <a name="module_schema_registry_msk"></a> [schema\_registry\_msk](#module\_schema\_registry\_msk) | ../.. | n/a |
+| <a name="module_schema_registry_sasl"></a> [schema\_registry\_sasl](#module\_schema\_registry\_sasl) | ../.. | n/a |
+| <a name="module_schema_registry_with_ingress"></a> [schema\_registry\_with\_ingress](#module\_schema\_registry\_with\_ingress) | ../.. | n/a |
+
+## Resources
+
+No resources.
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
