@@ -50,3 +50,39 @@ terraform apply
 ```bash
 terraform destroy
 ```
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_kafka"></a> [kafka](#requirement\_kafka) | ~> 0.6 |
+
+## Providers
+
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_msk_topics"></a> [msk\_topics](#module\_msk\_topics) | ../../ | n/a |
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_bootstrap_brokers"></a> [bootstrap\_brokers](#input\_bootstrap\_brokers) | Comma-separated MSK SASL/SCRAM broker string (port 9096). | `string` | `""` | no |
+| <a name="input_sasl_password"></a> [sasl\_password](#input\_sasl\_password) | SASL/SCRAM password. | `string` | `""` | no |
+| <a name="input_sasl_username"></a> [sasl\_username](#input\_sasl\_username) | SASL/SCRAM username. | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_topic_names"></a> [topic\_names](#output\_topic\_names) | Names of all topics created by the example. |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

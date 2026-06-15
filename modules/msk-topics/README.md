@@ -141,3 +141,44 @@ git push origin v1.1.0
 ```
 
 The Terraform registry automatically detects the new tag and publishes the version within minutes.
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_kafka"></a> [kafka](#requirement\_kafka) | ~> 0.6 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_kafka"></a> [kafka](#provider\_kafka) | 0.13.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [kafka_topic.topics](https://registry.terraform.io/providers/Mongey/kafka/latest/docs/resources/topic) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_bootstrap_brokers"></a> [bootstrap\_brokers](#input\_bootstrap\_brokers) | Comma-separated MSK SASL/SCRAM bootstrap broker string (port 9096). Use the SASL endpoint, not the TLS-only endpoint. | `string` | n/a | yes |
+| <a name="input_sasl_mechanism"></a> [sasl\_mechanism](#input\_sasl\_mechanism) | SASL mechanism. Accepted values: 'scram-sha256', 'scram-sha512'. Defaults to scram-sha512. | `string` | `"scram-sha512"` | no |
+| <a name="input_sasl_password"></a> [sasl\_password](#input\_sasl\_password) | SASL/SCRAM password. Pass via workspace secret or DSL secret interpolation — never hardcode. | `string` | `""` | no |
+| <a name="input_sasl_username"></a> [sasl\_username](#input\_sasl\_username) | SASL/SCRAM username. Leave empty for TLS-only auth (not applicable to SCRAM-enabled MSK clusters). | `string` | `""` | no |
+| <a name="input_topics"></a> [topics](#input\_topics) | Map of Kafka topic definitions. Map key is the topic name. | <pre>map(object({<br/>    partitions         = number<br/>    replication_factor = number<br/>    config             = optional(map(string), {})<br/>  }))</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_topic_ids"></a> [topic\_ids](#output\_topic\_ids) | Map of topic name to Terraform resource ID. |
+| <a name="output_topic_names"></a> [topic\_names](#output\_topic\_names) | List of all Kafka topic names managed by this module. |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
