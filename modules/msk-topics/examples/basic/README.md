@@ -77,6 +77,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_bootstrap_brokers"></a> [bootstrap\_brokers](#input\_bootstrap\_brokers) | Comma-separated MSK SASL/SCRAM broker string (port 9096). | `string` | `""` | no |
+| <a name="input_sasl_mechanism"></a> [sasl\_mechanism](#input\_sasl\_mechanism) | SASL mechanism: scram-sha256, scram-sha512, aws-iam, oauthbearer, or plain. | `string` | `"scram-sha512"` | no |
 | <a name="input_sasl_password"></a> [sasl\_password](#input\_sasl\_password) | SASL/SCRAM password. | `string` | `""` | no |
 | <a name="input_sasl_username"></a> [sasl\_username](#input\_sasl\_username) | SASL/SCRAM username. | `string` | `""` | no |
 

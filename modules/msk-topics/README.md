@@ -118,3 +118,40 @@ git push origin v1.1.0
 ```
 
 The Terraform registry automatically detects the new tag and publishes the version within minutes.
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_kafka"></a> [kafka](#requirement\_kafka) | ~> 0.6 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_kafka"></a> [kafka](#provider\_kafka) | 0.13.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [kafka_topic.topics](https://registry.terraform.io/providers/Mongey/kafka/latest/docs/resources/topic) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_topics"></a> [topics](#input\_topics) | Map of Kafka topic definitions. Map key is the topic name. | <pre>map(object({<br/>    partitions         = number<br/>    replication_factor = number<br/>    config             = optional(map(string), {})<br/>  }))</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_topic_ids"></a> [topic\_ids](#output\_topic\_ids) | Map of topic name to Terraform resource ID. |
+| <a name="output_topic_names"></a> [topic\_names](#output\_topic\_names) | List of all Kafka topic names managed by this module. |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
