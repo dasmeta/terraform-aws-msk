@@ -1,6 +1,6 @@
 module "kafka" {
   source  = "terraform-aws-modules/msk-kafka-cluster/aws"
-  version = "2.1.0"
+  version = "3.3.0"
 
   kafka_version                            = var.kafka_version
   number_of_broker_nodes                   = var.number_of_broker_nodes
