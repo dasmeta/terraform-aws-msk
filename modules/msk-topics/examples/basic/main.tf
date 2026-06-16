@@ -1,19 +1,27 @@
 module "msk_topics" {
   source = "../../"
 
-  bootstrap_brokers = var.bootstrap_brokers
-  sasl_username     = var.sasl_username
-  sasl_password     = var.sasl_password
-  sasl_mechanism    = "scram-sha512"
-
   topics = {
     "example-orders" = {
-      partitions         = 1
-      replication_factor = 2
+      partitions         = 6
+      replication_factor = 3
+      config = {
+        "retention.ms"   = "604800000"
+        "cleanup.policy" = "delete"
+      }
     }
 
+    "example-audit-log" = {
+      partitions         = 3
+      replication_factor = 3
+      config = {
+        "cleanup.policy" = "compact"
+      }
+    }
 
-
-
+    "example-notifications" = {
+      partitions         = 3
+      replication_factor = 3
+    }
   }
 }
